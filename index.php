@@ -4,14 +4,24 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="es">
     <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/estilo.css" rel="stylesheet">
+    </head><!--/head-->
+
+    <script src="js/jquery-3.0.0.js"></script>
+    <div id="content">
+
+        <h3>Paneles de administración</h3>
+        <div >
+            <button id="dolce" class="btn btn-primary">Il dolce far niente</button>
+
+        </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="js/inicio.js"></script>
+
+

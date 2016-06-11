@@ -1,0 +1,14 @@
+
+/* 
+    Created on : 11-jun-2016, 14:30:36
+    Author     : JuanDiego
+*/
+
+
+#content {
+   margin: 0 auto; /* Mis altura que el footer */
+   width: 50%;
+} 
+#content h3{
+    text-align: center;
+}
