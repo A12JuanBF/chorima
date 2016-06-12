@@ -10,7 +10,7 @@ and open the template in the editor.
         <link href="css/estilo.css" rel="stylesheet">
     </head><!--/head-->
 
-    <script src="js/jquery-3.0.0.js"></script>
+    <script src="js/jquery.js"></script>
     <div id="content">
 
         <h3>Paneles de administración</h3>
