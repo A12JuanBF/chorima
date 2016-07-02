@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php
+include '../clases/administrar.php';
+$option = new administrar("idfn");
+?>
 <html lang="es">
 
     <head>
@@ -25,7 +29,7 @@
         <![endif]-->
 
     </head>
-    <scrip src="js/script-dolce.js"></scrip>
+    
     <body>
 
         <div id="wrapper">
@@ -42,7 +46,10 @@
                         <a href="nuevo.php">Introducir nuevo plato</a>
                     </li>
                     <li>
-                        <a href="#">Modificar platos</a>
+                        <a href="modificar.php">Modificar plato</a>
+                    </li>
+                    <li>
+                        <a href="categoria.php">Introducir categoria</a>
                     </li>
                     <li>
                         <a href="#">Clientes</a>
@@ -58,7 +65,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <h1>Panel de administración</h1>
-                            <p>Herramienta para introducir nuevos platos <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Ocultar menu</a></p>
+                            <p>Escoge operación <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Ocultar menu</a></p>
 
 
                         </div>
@@ -69,24 +76,29 @@
                                 <div class="form-group">
                                     <label >Nombre</label>
                                     <input type="text" class="form-control" id="nombre"
-                                           placeholder="Nombre">
+                                           placeholder="Nombre" required="required">
                                 </div>
                                 <div class="form-group">
                                     <label >Descripción</label>
                                     <textarea class="form-control" id="descripcion" 
-                                              ></textarea>
+                                              required="required"></textarea>
                                 </div>
                                 <div class="col-lg-6 form-group">
                                     <label >Precio</label>
                                     <input type="number" class="form-control" id="precio"
-                                           placeholder="Precio" step="0.01">
+                                           placeholder="Precio" step="0.01" required="required">
                                 </div>
                                 <div  class="form-group col-lg-6">
                                     <label >Categoría</label>
-                                    <select class="form-control" id="categoria"> 
-                                        <option value="Primero">Primero</option> 
-                                        <option value="Segundo">Segundo</option>        
+                                    <select class="form-control" id="categoria" required="required"> 
+                                        <?php
+                                        $array = json_decode($option->mostrarcarta());
+                                        foreach ($array as $value) {
+                                            echo "<option value='$value->nombre'>" . $value->nombre . "</option>";
+                                        }
+                                        ?>
                                     </select>
+
                                 </div>
 
 
@@ -97,12 +109,12 @@
                         </div>
                         </form>
                         <form id="archivo" enctype="multipart/form-data">
-                           
-                                <label >Adjuntar un archivo</label>
-                                <input name="fichero" type="file" >
-                                <input id="imagen" type="text">
-                                <p class="help-block">Ejemplo de texto de ayuda.</p>
-                            
+
+                            <label >Adjuntar un archivo</label>
+                            <input name="fichero" type="file" required="required">
+                            <input style="display: none;" id="imagen" type="text">
+                            <p class="help-block">Tamaño recomendado de la imagen 640 píxeles de ancho x 480 píxele de largo</p>
+
                         </form>
                     </div>
 
@@ -136,11 +148,17 @@
                 dest = "include/peti-dolce.php?op=1";
                 param = {
                     "nombre": $("#nombre").val(),
+                    "nombregl":"",
+                    "nombreen":"",
                     "descripcion": $("#descripcion").val(),
+                    "descripciongl": "",
+                    "descripcionen": "",
                     "precio": $("#precio").val(),
                     "categoria": $("#categoria").val(),
                     "imagen": $("#imagen").val()
                 };
+                if($("#archivo input:eq(0)").val()!="")
+                {
                 $.ajax({
                     url: dest,
                     data: param,
@@ -151,24 +169,24 @@
 
                     },
                     success: function(respuesta) {
-
-                        alert(respuesta);
-                        if (respuesta)
-                        {
-
-                            alert(respuesta);
-                        }
-
+                            alert(respuesta);              
+                            
+                            location.reload();
 
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         alert("Status: " + textStatus);
                         alert("Error: " + errorThrown);
                     }
-                });
+                    });
+                }
+                else
+                {
+                    alert("El plato necesita una imagen");
+                }
             });
             $("#archivo input").change(function() {
-                
+
                 var formData = new FormData($("#archivo")[0]);
 
                 ruta = "include/peti-dolce.php?op=2";
@@ -182,16 +200,9 @@
                     success: function(datos)
 
                     {
-                        alert(datos);
-                        if (datos != false)
-                        {
-
-                        }
-                        else
-                        {
-                            //$("#albaran input").val("");
-                            alert(datos);
-                        }
+                        
+                        $("#imagen").val(datos);
+                        
                     },
                     error: function(XMLHttpRequest, textStatus, errorThrown) {
                         alert("Status: " + textStatus);
