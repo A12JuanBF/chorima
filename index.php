@@ -15,8 +15,8 @@ and open the template in the editor.
 
         <h3>Paneles de administración</h3>
         <div >
-            <button id="dolce" class="btn btn-primary">Il dolce far niente</button>
-
+            <button id="dolce" class="btn btn-primary pull-left">Il dolce far niente</button>
+            <button id="chorima" class="btn btn-primary pull-right">A taberna da chorima</button>
         </div>
 
 
