@@ -1,0 +1,100 @@
+<?php
+session_start();
+if(!isset($_SESSION['lang'])){
+    require_once   '../include/lenguagl.php';
+}
+if(isset($_SESSION['lang']) && $_SESSION['lang']=="es"){
+    require_once  '../include/lenguaes.php';
+}
+if(isset($_SESSION['lang']) && $_SESSION['lang']=="gl"){
+    require_once  '../include/lenguagl.php';
+}
+if(isset($_SESSION['lang']) && $_SESSION['lang']=="en"){
+    require_once  '../include/lenguaen.php';
+}
+include '../vista/vista.php';
+include '../clases/eventos.php';
+include '../include/meses.php';
+$vista = new vista();
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Política de cookies</title>
+        <!-- for-mobile-apps -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <!--Llamar a vista para las metas genéricas -->
+        <?php $vista->getmeta("default"); ?>
+        <?php $vista->geticon("default"); ?>
+        
+        <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+            function hideURLbar(){ window.scrollTo(0,1); } </script>
+        <!-- //for-mobile-apps -->
+        <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+
+        <link href="../css/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+        <link href="../css/assets/css/font-awesome.css" rel="stylesheet" type="text/css" media="all" />
+
+        <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+        <!-- js -->
+        <script src="../js/jquery-1.11.1.min.js"></script>
+        <script src="../js/cookiesmensaje.js"></script>
+        <script src="../js/idioma.js"></script>
+        <script src="../js/jquery.cookie.js"></script>
+        <!-- //js -->
+        <link href='//fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body>
+
+        <!-- header -->
+        <?php
+        $vista->cabecera("default");
+        ?>
+        <!-- //header -->
+        <!-- typo -->
+        <div class="typo">
+            <div class="container ">
+                <div class="text-justify">
+                    <h2>POLITICA DE COOKIES</h2>
+                    <p>Cookie es un fichero que se descarga en su ordenador al acceder a determinadas páginas web. Las cookies permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo y, dependiendo de la información que contengan y de la forma en que utilice su equipo, pueden utilizarse para reconocer al usuario.. El navegador del usuario memoriza cookies en el disco duro solamente durante la sesión actual ocupando un espacio de memoria mínimo y no perjudicando al ordenador. Las cookies no contienen ninguna clase de información personal específica, y la mayoría de las mismas se borran del disco duro al finalizar la sesión de navegador (las denominadas cookies de sesión).</p>
+                    <p>La mayoría de los navegadores aceptan como estándar a las cookies y, con independencia de las mismas, permiten o impiden en los ajustes de seguridad las cookies temporales o memorizadas.</p>
+                    <br>
+                    <h4><b>¿Qué tipos de cookies utiliza esta página web?</b></h4>
+                    <p><i>- Cookies técnicas:</i> Son aquéllas que permiten al usuario la navegación a través de una página web, plataforma o aplicación y la utilización de las diferentes opciones o servicios que en ella existan como, por ejemplo, controlar el tráfico y la comunicación de datos, identificar la sesión, acceder a partes de acceso restringido, recordar los elementos que integran un pedido, realizar el proceso de compra de un pedido, realizar la solicitud de inscripción o participación en un evento, utilizar elementos de seguridad durante la navegación, almacenar contenidos para la difusión de videos o sonido o compartir contenidos a través de redes sociales.</p>
+                    <p><i>- Cookies de personalización:</i> Son aquéllas que permiten al usuario acceder al servicio con algunas características de carácter general predefinidas en función de una serie de criterios en el terminal del usuario como por ejemplo serian el idioma, el tipo de navegador a través del cual accede al servicio, la configuración regional desde donde accede al servicio, etc.</p>
+                    <p><i>- Cookies de análisis:</i> Son aquéllas que bien tratadas por nosotros o por terceros, nos permiten cuantificar el número de usuarios y así realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado. Para ello se analiza su navegación en nuestra página web con el fin de mejorar la oferta de productos o servicios que le ofrecemos.</p>
+                    <p><i>- Cookies publicitarias:</i> Son aquéllas que, bien tratadas por nosotros o por terceros, nos permiten gestionar de la forma más eficaz posible la oferta de los espacios publicitarios que hay en la página web, adecuando el contenido del anuncio al contenido del servicio solicitado o al uso que realice de nuestra página web. Para ello podemos analizar sus hábitos de navegación en Internet y podemos mostrarle publicidad relacionada con su perfil de navegación.</p>
+                    <p><i>- Cookies de publicidad comportamental:</i> Son aquéllas que permiten la gestión, de la forma más eficaz posible, de los espacios publicitarios que, en su caso, el editor haya incluido en una página web, aplicación o plataforma desde la que presta el servicio solicitado. Estas cookies almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación, lo que permite desarrollar un perfil específico para mostrar publicidad en función del mismo.</p>
+                    <p><b>Cookies de terceros:</b> La Web de <a href="http://atabernadachorima.es">http://atabernadachorima.es</a> puede utilizar servicios de terceros que, por cuenta de <a href="http://google.com">http://google.com</a>, recopilaran información con fines estadísticos, de uso del Site por parte del usuario y para la prestacion de otros servicios relacionados con la actividad del Website y otros servicios de Internet.</p>
+                    <p>En particular, este sitio Web utiliza Google Analytics, un servicio analítico de web prestado por Google, Inc. con domicilio en los Estados Unidos con sede central en 1600 Amphitheatre Parkway, Mountain View, California 94043.  Para la prestación de estos servicios, estos utilizan cookies que recopilan la información, incluida la dirección IP del usuario, que será transmitida, tratada y almacenada por Google en los términos fijados en la Web Google.com. Incluyendo la posible transmisión de dicha información a terceros por razones de exigencia legal o cuando dichos terceros procesen la información por cuenta de Google.</p>
+                    <p><b><u>El Usuario acepta expresamente, por la utilización de este Site, el tratamiento de la información recabada en la forma y con los fines anteriormente mencionados.</u></b> Y asimismo reconoce conocer la posibilidad de rechazar el tratamiento de tales datos o información rechazando el uso de Cookies mediante la selección de la configuración apropiada a tal fin en su navegador. Si bien esta opción de bloqueo de Cookies en su navegador puede no permitirle el uso pleno de todas las funcionalidades del Website.</p>
+                    <p>Puede usted permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador:</p>
+                    <ul style="margin-left: 2em;">
+                        <li>Chrome</li>
+                        <li>Explorer</li>
+                        <li>Firefox</li>
+                        <li>Safari</li>
+                    </ul>
+                    <br>
+                    <p>Si tiene dudas sobre esta política de cookies, puede contactar con Equipo técnico-informático en contacto@atabernadachorima.es</p>
+
+
+
+
+
+                </div>
+            </div>
+        </div>	
+        <!-- //typo -->
+        <!--- footer --->
+        <?php
+        $vista->pie();
+        ?>
+        <!--- //footer --->
+        <!-- for bootstrap working -->
+        <script src="../js/bootstrap.js"> </script>
+        <!-- //for bootstrap working -->
+    </body>
+</html>

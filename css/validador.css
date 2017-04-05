@@ -1,0 +1,13 @@
+footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #f8f8f8;
+}
+#cajamensaje,#load{
+    display: none;
+}
+#load img{
+    width: 25%;
+    margin: 0 auto;
+}
